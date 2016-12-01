@@ -30,9 +30,26 @@ class App extends React.Component {
 	      			{this.state.data.map((person, i) => <TableRow key = {i} data = {person} />)}
 	      		</tbody>
 	      	</table>
+	      	<StatefullComponent/>
 	    </div>
       );
    	}
+}
+
+class StatefullComponent extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			'id':1, 'name': 'Bhaskar'
+		}
+	}
+	render(){
+		return(
+			<div>
+				<h1> {this.state.id} </h1>
+			</div>
+		)
+	}	
 }
 
 class Header extends React.Component {
