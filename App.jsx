@@ -257,10 +257,20 @@ class FormComponent extends React.Component {
 	render(){
 		return(
 			<div>
-				<input type="text" value={this.state.data} onChange={this.updateState} />
-				<h4> {this.state.data} </h4>
+				<Content myData = {this.state.data} updateStateProp={this.updateState} ></Content>
 			</div>
 		);
+	}
+}
+
+class Content extends React.Component{
+	render(){
+		return(
+			<div>
+				<input type="text" value={this.props.myData} onChange={this.props.updateStateProp} />
+				<h4> {this.props.myData} </h4>
+			</div>
+		)
 	}
 }
 
