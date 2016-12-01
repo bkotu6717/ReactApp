@@ -36,6 +36,7 @@ class App extends React.Component {
 	      	<StateHandler/>
 	      	<ForceUpdateHandler/>
 	      	<FindDomNode/>
+	      	<Lifecycle/>
 	    </div>
       );
    	}
@@ -186,5 +187,57 @@ class FindDomNode extends React.Component {
 	}
 }
 
+class Lifecycle extends React.Component{
+	constructor(){
+		super();
+		this.state = {
+			data: 0
+		}
+		this.setNewNumber = this.setNewNumber.bind(this)
+	}
+
+	componentWillMount() {
+      console.log('Component WILL MOUNT!')
+   	}
+
+   componentDidMount() {
+      console.log('Component DID MOUNT!')
+   }
+
+   componentWillReceiveProps(newProps) {    
+      console.log('Component WILL RECIEVE PROPS!')
+   }
+
+   shouldComponentUpdate(newProps, newState) {
+      return true;
+   }
+
+   componentWillUpdate(nextProps, nextState) {
+      console.log('Component WILL UPDATE!');
+   }
+
+   componentDidUpdate(prevProps, prevState) {
+      console.log('Component DID UPDATE!')
+   }
+
+   componentWillUnmount() {
+      console.log('Component WILL UNMOUNT!')
+   }
+
+
+	setNewNumber(){
+		this.setState({data: this.state.data + 1})
+	}
+
+	render(){
+		return(
+			<div>
+				<button onClick={this.setNewNumber}> INCREMENT </button>
+				<h1> {this.state.data} </h1>
+			</div>
+		)	
+	}
+
+}
 
 export default App;
