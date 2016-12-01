@@ -38,6 +38,7 @@ class App extends React.Component {
 	      	<FindDomNode/>
 	      	<Lifecycle/>
 	      	<FormComponent/>
+	      	<EventComponent/>
 	    </div>
       );
    	}
@@ -273,5 +274,29 @@ class Content extends React.Component{
 		)
 	}
 }
+
+class EventComponent extends React.Component {
+	constructor(){
+		super();
+		this.state = {
+			data: 'initial data!!'
+		}
+	this.updateState = this.updateState.bind(this);
+	}
+
+	updateState(){
+		this.setState({data: 'Date updated with event'});
+	}
+
+	render(){
+		return(
+			<div>
+				<button onClick={this.updateState}>CLICK</button>
+				<h4> {this.state.data} </h4>
+			</div>
+		);
+	}
+}
+
 
 export default App;
