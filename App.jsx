@@ -33,6 +33,7 @@ class App extends React.Component {
 	      	</table>
 	      	<StatefullComponent/>
 	      	<StateHandler/>
+	      	<ForceUpdateHandler/>
 	    </div>
       );
    	}
@@ -137,6 +138,26 @@ class StateHandler extends React.Component {
 			<div>
 			  <button onClick = {this.setStateHandler}>SET STATE</button>
             <h4>State Array: {this.state.datalist}</h4>
+			</div>
+		)
+	}
+}
+
+class ForceUpdateHandler extends React.Component {
+	constructor(){
+		super();
+		this.ForceUpdateHandler = this.ForceUpdateHandler.bind(this);
+	}
+
+	ForceUpdateHandler(){
+		this.forceUpdate();
+	}
+
+	render(){
+		return(
+			<div>
+				  <button onClick = {this.ForceUpdateHandler}>Force Update</button>
+            <h4>New Random number is: {Math.random()}</h4>
 			</div>
 		)
 	}
