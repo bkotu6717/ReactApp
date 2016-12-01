@@ -47,6 +47,8 @@ class StatefullComponent extends React.Component{
 		return(
 			<div>
 				<h1> {this.state.id} </h1>
+				<h1> {this.state.name} </h1>
+
 			</div>
 		)
 	}	
