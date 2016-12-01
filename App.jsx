@@ -32,6 +32,7 @@ class App extends React.Component {
 	      		</tbody>
 	      	</table>
 	      	<StatefullComponent/>
+	      	<StateHandler/>
 	    </div>
       );
    	}
@@ -110,6 +111,33 @@ class TableRow extends React.Component {
 			<td> {this.props.data.name}</td>
 			<td>{this.props.data.age}</td>
 		</tr>
+		)
+	}
+}
+
+class StateHandler extends React.Component {
+	constructor(){
+		super();
+		this.state = {
+			datalist: []
+		}
+		this.setStateHandler = this.setStateHandler.bind(this);
+	};
+
+	setStateHandler(){
+		var item = 'This is item ....';
+		var myArray = [];
+		myArray = this.state.datalist;
+		myArray.push(item);
+		this.setState({datalist: myArray})
+	}
+
+	render(){
+		return(
+			<div>
+			  <button onClick = {this.setStateHandler}>SET STATE</button>
+            <h4>State Array: {this.state.datalist}</h4>
+			</div>
 		)
 	}
 }
